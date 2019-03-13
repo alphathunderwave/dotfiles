@@ -1,0 +1,6 @@
+--2018-03-05 23:37:56--  http://api.openweathermap.org/data/2.5/weather?id=5110629
+Resolving api.openweathermap.org (api.openweathermap.org)... 192.241.169.168, 162.243.53.59
+Connecting to api.openweathermap.org (api.openweathermap.org)|192.241.169.168|:80... connected.
+HTTP request sent, awaiting response... 401 Unauthorized
+
+Username/Password Authentication Failed.

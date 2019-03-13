@@ -1,1 +1,211 @@
-/home/beeeeennnn/.i3/config
+#set key variables
+set $mod Mod4
+
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# kill focused windowE
+bindsym $mod+Shift+q kill
+bindsym $mod+Escape exec --no-startup-id ~/.i3/scripts/lock
+
+# start rofi
+bindsym $mod+space exec rofi -show run -font "Open Sans 18"
+
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+f floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+m focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
+
+# set workspaces
+
+set $workspace1 workspace 1
+set $workspace2 workspace 2
+set $workspace3 workspace 3
+set $workspace4 workspace 4
+set $workspace5 workspace 5
+set $workspace6 workspace 6
+set $workspace7 workspace 7
+set $workspace8 workspace 8
+set $workspace9 workspace 9
+set $workspace10 workspace 10
+
+# switch to workspace
+bindsym $mod+1 $workspace1
+bindsym $mod+2 $workspace2
+bindsym $mod+3 $workspace3
+bindsym $mod+4 $workspace4
+bindsym $mod+5 $workspace5
+bindsym $mod+6 $workspace6
+bindsym $mod+7 $workspace7
+bindsym $mod+8 $workspace8
+bindsym $mod+9 $workspace9
+bindsym $mod+0 $workspace10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to $workspace1
+bindsym $mod+Shift+2 move container to $workspace2
+bindsym $mod+Shift+3 move container to $workspace3
+bindsym $mod+Shift+4 move container to $workspace4
+bindsym $mod+Shift+5 move container to $workspace5
+bindsym $mod+Shift+6 move container to $workspace6
+bindsym $mod+Shift+7 move container to $workspace7
+bindsym $mod+Shift+8 move container to $workspace8
+bindsym $mod+Shift+9 move container to $workspace9
+bindsym $mod+Shift+0 move container to $workspace10
+
+# screenshot
+bindsym Print exec gnome-screenshot -i
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+Escape exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# other keys
+bindsym $mod+F1 exec google-chrome
+bindsym $mod+F2 exec atom
+bindsym $mod+F3 exec nautilus
+bindsym $mod+F4 exec --no-startup-id ~/.i3/scripts/rain.py
+assign [class="rain.py"] $workspace1
+
+# window borders
+for_window [class="."] border pixel 5
+for_window [class="conky"] border pixel 0
+
+# gaps between windows
+gaps inner 30
+gaps outer 30
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10 # decrease screen brightnessg
+
+# Touchpad controls
+bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# kill
+exec_always --no-startup-id killall compton
+#exec_always --no-startup-id killall conky
+
+# startup
+#exec_always --no-startup-id ~/.i3/scripts/blurme
+exec_always --no-startup-id xinput disable 10
+exec_always --no-startup-id feh --bg-fill Pictures/Wallpapers/wallpaper2.jpeg --bg-fill Pictures/Wallpapers/wallpaper1.jpeg
+exec_always --no-startup-id compton --config ~/.config/compton.conf
+#exec_always --no-startup-id conky -c ~/.conky/Conky\ MIUI/miui
+exec_always --no-startup-id ~/.screenlayout/screen.sh
+exec_always --no-startup-id xset s 1800
+exec xautolock -time 15 -locker ~/.i3/scripts/lock
+
+# font
+font pango:Product Sans 12
+
+# colors
+set $bg-color            #2D3047
+set $inactive-bg-color   #2D3047
+set $text-color          #FFD3AA
+set $inactive-text-color #b29376
+set $urgent-bg-color     #29B0AA
+
+# window colors
+#                       border              background         text                 indicator
+client.focused          $bg-color           $inactive-bg-color $text-color          $bg-color
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $bg-color
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $bg-color
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $bg-color
+
+
+# bar
+bar {
+  position top
+  #tray_output none
+  tray_padding 0
+  status_command i3blocks -c /home/beeeeennnn/.i3/i3blocks.conf
+  colors {
+    background $bg-color
+    separator #757575
+    #                  border             background         text
+    focused_workspace  $text-color        $text-color          $bg-color
+    inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+    urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+    active_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+  }
+}

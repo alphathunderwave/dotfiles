@@ -1,0 +1,4 @@
+#!/bin/bash
+
+
+python3 volume.py $BLOCK_BUTTON

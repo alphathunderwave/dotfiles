@@ -1,0 +1,4 @@
+#!/bin/bash
+gnome-screenshot -f ./temp.png
+./betterlockscreen/betterlockscreen -u ./temp.png
+./betterlockscreen/betterlockscreen -l blur -- --timestr '%l:%H'
