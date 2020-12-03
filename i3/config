@@ -139,12 +139,12 @@ bindsym $mod+F4 exec --no-startup-id ~/.i3/scripts/rain.py
 assign [class="rain.py"] $workspace1
 
 # window borders
-for_window [class="."] border pixel 5
+for_window [class="."] border pixel 10
 for_window [class="conky"] border pixel 0
 
 # gaps between windows
 gaps inner 30
-gaps outer 30
+gaps outer 5
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -165,18 +165,18 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # kill
-exec_always --no-startup-id killall compton
-#exec_always --no-startup-id killall conky
+exec_always --no-startup-id killall picom
 
 # startup
 #exec_always --no-startup-id ~/.i3/scripts/blurme
-exec_always --no-startup-id xinput disable 10
-exec_always --no-startup-id feh --bg-fill Pictures/Wallpapers/wallpaper2.jpeg --bg-fill Pictures/Wallpapers/wallpaper1.jpeg
-exec_always --no-startup-id compton --config ~/.config/compton.conf
+exec_always --no-startup-id feh --bg-fill Pictures/Wallpaper/wallpaper6.png
+exec_always --no-startup-id picom --config ~/.config/compton.conf
 #exec_always --no-startup-id conky -c ~/.conky/Conky\ MIUI/miui
 exec_always --no-startup-id ~/.screenlayout/screen.sh
+exec_always --no-startup-id xrandr --output eDP --right-of HDMI-A-0 --auto
 exec_always --no-startup-id xset s 1800
 exec xautolock -time 15 -locker ~/.i3/scripts/lock
+
 
 # font
 font pango:Product Sans 12
@@ -201,7 +201,7 @@ bar {
   position top
   #tray_output none
   tray_padding 0
-  status_command i3blocks -c /home/beeeeennnn/.i3/i3blocks.conf
+  status_command i3blocks -c /home/beeeeennnn/.config/i3/i3blocks.conf
   colors {
     background $bg-color
     separator #757575
