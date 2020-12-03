@@ -1,3 +1,5 @@
+#i3 config
+
 #set key variables
 set $mod Mod4
 
