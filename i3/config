@@ -150,7 +150,7 @@ for_window [class="conky"] border pixel 0
 
 # gaps between windows
 gaps inner 30
-gaps outer 5
+gaps outer 30
 
 # rounded corners
 border_radius 3
@@ -179,7 +179,9 @@ exec_always --no-startup-id killall picom
 
 # startup
 exec_always --no-startup-id ~/.i3/scripts/blurme
-exec_always --no-startup-id feh --bg-fill Pictures/Wallpaper/wallpaper.png
+exec_always --no-startup-id feh --bg-fill Pictures/Wallpaper/wallpaper6.png
+#exec_always --no-startup-id feh --bg-fill Pictures/20220127-DJI_0308.JPG
+
 exec_always --no-startup-id picom --config ~/.config/compton.conf
 #exec_always --no-startup-id conky -c ~/.conky/miui
 exec_always --no-startup-id ~/.i3/scripts/screen.sh
@@ -192,9 +194,9 @@ exec_always --no-startup-id xrandr --output eDP --right-of Virtual1 --auto
 font pango:Product Sans 12
 
 # colors
-set $bg-color            #2D3047
-set $inactive-bg-color   #2D3047
-set $text-color          #FFD3AA
+set $bg-color            #393E41
+set $inactive-bg-color   #393E41
+set $text-color          #EBEBD3
 set $inactive-text-color #b29376
 set $urgent-bg-color     #29B0AA
 
