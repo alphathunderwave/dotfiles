@@ -110,6 +110,10 @@ bindsym $mod+Shift+r restart
 # save dotfiles
 bindsym $mod+Shift+s exec ~/dotfiles/save
 
+# monitors
+
+bindsym $mod+Shift+m exec ~/.config/i3/scripts/screen.sh
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+Escape exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -141,12 +145,16 @@ bindsym $mod+F4 exec --no-startup-id ~/.i3/scripts/rain.py
 assign [class="rain.py"] $workspace1
 
 # window borders
-for_window [class="."] border pixel 10
+for_window [class="."] border pixel 7
 for_window [class="conky"] border pixel 0
 
 # gaps between windows
 gaps inner 30
 gaps outer 5
+
+# rounded corners
+border_radius 3
+
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -170,14 +178,14 @@ bindsym XF86AudioPrev exec playerctl previous
 exec_always --no-startup-id killall picom
 
 # startup
-#exec_always --no-startup-id ~/.i3/scripts/blurme
-exec_always --no-startup-id feh --bg-fill Pictures/Wallpaper/wallpaper6.png
+exec_always --no-startup-id ~/.i3/scripts/blurme
+exec_always --no-startup-id feh --bg-fill Pictures/Wallpaper/wallpaper.png
 exec_always --no-startup-id picom --config ~/.config/compton.conf
-#exec_always --no-startup-id conky -c ~/.conky/Conky\ MIUI/miui
-exec_always --no-startup-id ~/.screenlayout/screen.sh
-exec_always --no-startup-id xrandr --output eDP --right-of HDMI-A-0 --auto
-exec_always --no-startup-id xset s 1800
-exec xautolock -time 15 -locker ~/.i3/scripts/lock
+#exec_always --no-startup-id conky -c ~/.conky/miui
+exec_always --no-startup-id ~/.i3/scripts/screen.sh
+exec_always --no-startup-id xrandr --output eDP --right-of Virtual1 --auto
+#exec_always --no-startup-id xset s 1800
+#exec xautolock -time 15 -locker ~/.i3/scripts/lock
 
 
 # font

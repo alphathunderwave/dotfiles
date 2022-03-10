@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 import os
 from os import environ
 if "BLOCK_BUTTON" in os.environ:

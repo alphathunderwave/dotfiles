@@ -7,9 +7,9 @@
     lightbg:                     #534c48;
     red:                         #f15d22;
     orange:                      #faa41a;
-    blue:                        #FC2366;
+    blue:                        #FFD3AA;
 
-    selected-normal-foreground:  @foreground;
+    selected-normal-foreground:  #2D3047;
     normal-foreground:           @foreground;
     alternate-normal-background: @background;
     selected-urgent-foreground:  @foreground;
