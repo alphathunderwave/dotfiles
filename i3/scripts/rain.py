@@ -24,7 +24,7 @@ class Rain:
             self.x = np.random.randint(0 , 5120)
             self.y= np.random.randint(-750 , -50)
 
-screen = pygame.display.set_mode((5120, 1080))
+screen = pygame.display.set_mode((10000, 2000))
 
 running = 1
 

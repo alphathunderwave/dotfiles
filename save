@@ -7,7 +7,7 @@ cp ~/dotfiles/compton/compton.conf ~/.config/compton.conf
 #cp ~/dotfiles/conky/miui ~/.conky/Conky\ MIUI/miui
 # i3
 # i3 scrips
-cp -R ~/dotfiles/i3/scripts ~/.config/i3/scripts/
+cp -a ~/dotfiles/i3/scripts ~/.config/i3/scripts/
 # i3 config
 cp ~/dotfiles/i3/config ~/.config/i3/config
 # i3 blocks

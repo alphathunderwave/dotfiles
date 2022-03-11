@@ -141,7 +141,7 @@ bindsym $mod+r mode "resize"
 bindsym $mod+F1 exec google-chrome
 bindsym $mod+F2 exec atom
 bindsym $mod+F3 exec nautilus
-bindsym $mod+F4 exec --no-startup-id ~/.i3/scripts/rain.py
+bindsym $mod+F4 exec --no-startup-id ~/.config/i3/scripts/rain.py
 assign [class="rain.py"] $workspace1
 
 # window borders
@@ -179,8 +179,8 @@ exec_always --no-startup-id killall picom
 
 # startup
 exec_always --no-startup-id ~/.i3/scripts/blurme
-exec_always --no-startup-id feh --bg-fill Pictures/Wallpaper/wallpaper6.png
-#exec_always --no-startup-id feh --bg-fill Pictures/20220127-DJI_0308.JPG
+#exec_always --no-startup-id feh --bg-fill Pictures/Wallpaper/wallpaper.png
+exec_always --no-startup-id feh --bg-fill Pictures/20220127-DJI_0308.JPG
 
 exec_always --no-startup-id picom --config ~/.config/compton.conf
 #exec_always --no-startup-id conky -c ~/.conky/miui
