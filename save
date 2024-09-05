@@ -1,6 +1,6 @@
 #!/bin/bash
 # atom
-cp ~/dotfiles/atom/colors.less ~/github/my-theme-syntax/styles/colors.less
+#cp ~/dotfiles/atom/colors.less ~/github/my-theme-syntax/styles/colors.less
 # compton
 cp ~/dotfiles/compton/compton.conf ~/.config/compton.conf
 # conky

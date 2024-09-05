@@ -9,7 +9,7 @@
     orange:                      #faa41a;
     blue:                        #EBEBD3;
 
-    selected-normal-foreground:  #393E41;
+    selected-normal-foreground:  #EBEBD3;
     normal-foreground:           @foreground;
     alternate-normal-background: @background;
     selected-urgent-foreground:  @foreground;
